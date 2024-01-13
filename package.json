@@ -18,11 +18,14 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@rollup/rollup-linux-x64-gnu": "^4.9.5",
     "antd": "^5.12.8",
     "framer-motion": "^10.18.0",
+    "node": "^21.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tslint": "^6.0.0"
+    "tslint": "^6.0.0",
+    "typescript-eslint": "^0.0.1-alpha.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

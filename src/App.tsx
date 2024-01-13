@@ -1,13 +1,9 @@
-import "./index.css";
 import Home from "./components/Home";
 import BlogDashboard from "./components/BlogDashboard";
-import { ChakraProvider } from "@chakra-ui/react";
-import Contact from "./components/Contact";
 import LoginForm from "./components/Loginform";
-import TaskApp from "./components/TaskApp";
+
 import SkillsGrid from "./components/SkillsGrid";
-import MultiDrawer from "./components/MultiDrawer";
-import { Pagination } from "antd";
+
 import Page from "./components/Pagination";
 
 function App() {
@@ -19,7 +15,7 @@ function App() {
 
       <LoginForm />
       <SkillsGrid />
-      <Page/>
+      <Page />
       {/* <div className="App">
      <BrowserRouter>
        <Routes>
