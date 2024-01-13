@@ -27,6 +27,6 @@ const MultiDrawer = () => {
     </>
   );
 };
-
-const root = ReactDOM.createRoot(document.getElementById('root')); // Assuming 'root' is the id of your mount node
+const r = document.getElementById('root');
+const root = ReactDOM.createRoot(r); // Assuming 'root' is the id of your mount node
 root.render(<MultiDrawer />);
