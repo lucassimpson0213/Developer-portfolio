@@ -1,6 +1,7 @@
 import Home from "./components/Home";
 import BlogDashboard from "./components/BlogDashboard";
 import LoginForm from "./components/Loginform";
+import { Divider } from "antd";
 
 import SkillsGrid from "./components/SkillsGrid";
 
@@ -10,11 +11,12 @@ function App() {
   return (
     <>
       <Home />
-
+      <SkillsGrid />
       <BlogDashboard />
 
       <LoginForm />
-      <SkillsGrid />
+      
+      <Divider/>
       <Page />
       {/* <div className="App">
      <BrowserRouter>

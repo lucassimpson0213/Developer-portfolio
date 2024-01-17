@@ -3,7 +3,7 @@ import { Heading, Center } from "@chakra-ui/react";
 export default function Contact() {
   return (
     <>
-      <Heading className="m-10 ">
+      <Heading>
         <Center>Contact</Center>
       </Heading>
     </>

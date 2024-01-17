@@ -12,7 +12,7 @@ import {
 
 export default function LoginForm() {
   return (
-    <div className="mt-40">
+    <div className="mt-35">
       <Box textAlign="center" mt={30}>
         <Heading>Contact</Heading>
       </Box>
