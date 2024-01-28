@@ -9,8 +9,9 @@ function HomePage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
-  return (
-    <motion.div initial="hidden" animate="visible" variants={contentVariants}>
+    return (
+      <>
+    <motion.div initial="hidden" animate="visible" variants={contentVariants} layout>
       <Flex w="100%" justify="center" align="center" padding="4">
         <Box textAlign="center" marginTop="4rem" width="30%">
           <div>
@@ -36,7 +37,19 @@ function HomePage() {
           alt="Krystal"
         />
       </Flex>
-    </motion.div>
+      </motion.div>
+      <motion.div
+    className="outline outline-blue-gray-900 w-20"
+    whileHover={{ scale: 1.2 }}
+    whileTap={{ scale: 1.1 }}
+    drag="x"
+                dragConstraints={{ left: 400, right: 700 }}
+                animate={{x: 500}}
+>
+    <div className="bg-blue-500 w-10 h-20"></div>
+</motion.div>
+
+      </>
   );
 }
 

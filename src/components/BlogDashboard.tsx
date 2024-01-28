@@ -1,4 +1,5 @@
 import { Divider, Stack } from "@chakra-ui/react";
+import { motion } from 'framer-motion';
 import Blog from "./Blog";
 import pic3 from "../assets/pic3.jpg";
 import pic from "../assets/pic.jpg";
@@ -9,6 +10,7 @@ export default function BlogDashboard() {
 
   return (
     <>
+      <motion.div layout>
       <Divider mb={20} mt={5} colorScheme="brand" />
 
       <Stack justify="center" align="center" spacing={30}>
@@ -30,7 +32,7 @@ export default function BlogDashboard() {
           date={date}
           image={pic1}
         />
-      </Stack>
+      </Stack></motion.div>
     </>
   );
 }

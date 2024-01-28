@@ -50,6 +50,7 @@ function AnimatedRoutes() {
         }
       />
       <Route path="/about" element={<LoginForm />} />
+      <Route
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );

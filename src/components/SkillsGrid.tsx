@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Grid, GridItem, Box, Text, Divider, Image } from "@chakra-ui/react";
 import { Card } from "antd";
-import { motion } from "framer-motion";
+import { LazyMotion, m, domAnimation } from "framer-motion";
 import FactAccordian from "./FactAccordian";
 
 import pic3 from "../assets/pic3.jpg";
@@ -9,8 +9,9 @@ import gow from "../../public/stock-photo-boy-playing-god-of-war-ragnarok-with-p
 import krystal from "../assets/IMG_4746-min.jpeg";
 import nature from "../assets/IMG_4282-min.jpeg";
 
-const MotionDivider = motion(Divider);
-const MotionBox = motion(Box);
+// Motion components using 'm' prefix
+const MotionDivider = m(Divider);
+const MotionBox = m(Box);
 
 type ImageLoadedState = {
   pic3: boolean;
@@ -58,28 +59,15 @@ export function SkillsGrid() {
   ];
 
   return (
-    <>
-      <MotionDivider
-        initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-        margin={10}
-      />
-
-      <div className="flex justify-center w-screen h-1/2">
-        <Grid
-          templateRows="repeat(2, 1fr)"
-          templateColumns="repeat(2, 1fr)"
-          gap={6}
-          w="2/3"
-          h="auto"
-          className="mt-40"
-        >
-          {images.map((item) => (
-            <GridItem key={item.key}>
-              <Card
-                className="w-3/4"
-                cover={
+    <LazyMotion features={domAnimation}>
+      <>
+        <MotionDivider initial="hidden" animate="visible" variants={fadeInUp} my={5} layout />
+        
+        <div className="flex justify-center w-screen h-1/2">
+          <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)" gap={6} w="2/3" h="auto" className='mt-40'>
+            {images.map((item) => (
+              <GridItem key={item.key}>
+                <Card className='w-3/4' cover={
                   <MotionBox
                     height="300px"
                     width="100%"
@@ -88,29 +76,26 @@ export function SkillsGrid() {
                     animate={imagesLoaded[item.key] ? "visible" : "hidden"}
                     variants={fadeInUp}
                   >
-                    <Image
-                      src={item.src}
+                    <Image 
+                      src={item.src} 
                       alt={item.title}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                       onLoad={() => handleImageLoad(item.key)}
                     />
                   </MotionBox>
-                }
-              >
-                <Text style={{ fontStyle: "italic" }}>{item.title}</Text>
-              </Card>
-            </GridItem>
-          ))}
-        </Grid>
-      </div>
+                }>
+                  <Text style={{ fontStyle: 'italic' }}>{item.title}</Text>
+                </Card>
+              </GridItem>
+            ))}
+          </Grid>
+        </div>
 
-      <FactAccordian />
-    </>
+        <FactAccordian />
+      </>
+    </LazyMotion>
   );
 }
 
 export default SkillsGrid;
+
