@@ -10,6 +10,8 @@ export function Home() {
     { label: "About", path: "/about" }, // Changed from '/contact' to '/about'
     { label: "Skills", path: "/skills" },
     { label: "Blog", path: "/blog" },
+    { label: "SignUp", path: "/signup" },
+    { label: "Examples", path: "/skills/examples" },
   ];
 
   return (
@@ -29,7 +31,14 @@ export function Home() {
           <Button><Link to='/contact'>Contact</Link></Button> */}
         </ButtonGroup>
 
-        <NewModel />
+        <NewModel
+          ModelTitle="Introduction"
+          ModelText={`Hello this is my webpage! 
+                You can go down to the homepage for my introduction.
+                 There's also a skills section where I display
+                 some of the skills I've gained over my time here!
+                 I like to do web development, gaming and I also like to work out!`}
+        />
       </div>
     </Box>
   );

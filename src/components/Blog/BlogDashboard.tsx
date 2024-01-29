@@ -1,9 +1,9 @@
 import { Divider, Stack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Blog from "./Blog";
-import pic3 from "../assets/pic3.jpg";
-import pic from "../assets/pic.jpg";
-import pic1 from "../assets/pic1.jpg";
+import pic3 from "../../assets/pic3.jpg";
+import pic from "../../assets/pic.jpg";
+import pic1 from "../../assets/pic1.jpg";
 
 export default function BlogDashboard() {
   const date = new Date();

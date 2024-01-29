@@ -2,17 +2,13 @@ import React, { useState } from "react";
 import { Flex, Box, Heading, Input, Button, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-type EmailInputProps = {
+type InputProps = {
   type: string;
   placeholder: string;
   label: string;
 };
 
-const EmailInput: React.FC<EmailInputProps> = ({
-  type,
-  placeholder,
-  label,
-}) => {
+const InputContainer: React.FC<InputProps> = ({ type, placeholder, label }) => {
   const [value, setValue] = useState<string>("");
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setValue(event.target.value);
@@ -30,7 +26,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
       variants={inputVariants}
       layout
     >
-      <Text mb="15px" mt={"10px"}>
+      <Text mb="15px" mt="10px">
         {label} {value}
       </Text>
       <Input
@@ -67,12 +63,12 @@ export default function LoginForm() {
             animate="visible"
             variants={formVariants}
           >
-            <EmailInput
+            <InputContainer
               placeholder={"email@example.com"}
               type={"email"}
               label={"Email: "}
             />
-            <EmailInput
+            <InputContainer
               placeholder={"Linkedin"}
               type={"text"}
               label={"LinkedIn:"}

@@ -1,24 +1,9 @@
-import { Card, Button, Flex, Avatar, Spacer } from "@chakra-ui/react";
+import React from "react";
+import { Code, Card } from "@chakra-ui/react";
+import { Editor } from "@monaco-editor/react";
+import { Flex } from "antd";
 
-import { useState } from "react";
-import EffectExample from "./EffectExample";
-import icon from "../../../assets/train-8517089_1280.jpg";
-import MotionExample from "./MotionExample";
-import CodeExample from "./CodeExample";
-
-function HooksExample() {
-  return (
-    <>
-      <StateExample />
-      <EffectExample />
-      <MotionExample />
-
-      <CodeExample />
-    </>
-  );
-}
-
-function StateExample() {
+const str = `function StateExample() {
   const [value, setValue] = useState(0);
 
   function handleClick() {
@@ -61,4 +46,32 @@ function StateExample() {
   );
 }
 
-export default HooksExample;
+
+
+export default HooksExample;`;
+
+function CodeExample() {
+  const code = str;
+  return (
+    <>
+      <Flex justify="center" className="w-screen">
+        <Card>
+          <div>CodeExample</div>
+          <Code></Code>
+          <Editor
+            width="50vw"
+            height="300px"
+            language="javascript"
+            theme="vs-dark"
+            value={code}
+            options={{
+              minimap: { scale: 10 },
+            }}
+          />
+        </Card>
+      </Flex>
+    </>
+  );
+}
+
+export default CodeExample;

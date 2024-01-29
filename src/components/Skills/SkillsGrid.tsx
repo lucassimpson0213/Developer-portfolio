@@ -4,10 +4,10 @@ import { Card } from "antd";
 import { LazyMotion, m, domAnimation } from "framer-motion";
 import FactAccordian from "./FactAccordian";
 
-import pic3 from "../assets/pic3.jpg";
-import gow from "../../public/stock-photo-boy-playing-god-of-war-ragnarok-with-playstation-controller-jul-sao-paulo-brazil-2180836335.jpg";
-import krystal from "../assets/IMG_4746-min.jpeg";
-import nature from "../assets/IMG_4282-min.jpeg";
+import pic3 from "../../assets/pic3.jpg";
+import gow from "../../../public/stock-photo-boy-playing-god-of-war-ragnarok-with-playstation-controller-jul-sao-paulo-brazil-2180836335.jpg";
+import krystal from "../../assets/IMG_4746-min.jpeg";
+import nature from "../../assets/IMG_4282-min.jpeg";
 
 // Motion components using 'm' prefix
 const MotionDivider = m(Divider);
