@@ -61,30 +61,50 @@ export function SkillsGrid() {
   return (
     <LazyMotion features={domAnimation}>
       <>
-        <MotionDivider initial="hidden" animate="visible" variants={fadeInUp} my={5} layout />
-        
+        <MotionDivider
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          my={5}
+          layout
+        />
+
         <div className="flex justify-center w-screen h-1/2">
-          <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)" gap={6} w="2/3" h="auto" className='mt-40'>
+          <Grid
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(2, 1fr)"
+            gap={6}
+            w="2/3"
+            h="auto"
+            className="mt-40"
+          >
             {images.map((item) => (
               <GridItem key={item.key}>
-                <Card className='w-3/4' cover={
-                  <MotionBox
-                    height="300px"
-                    width="100%"
-                    overflow="hidden"
-                    initial="hidden"
-                    animate={imagesLoaded[item.key] ? "visible" : "hidden"}
-                    variants={fadeInUp}
-                  >
-                    <Image 
-                      src={item.src} 
-                      alt={item.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                      onLoad={() => handleImageLoad(item.key)}
-                    />
-                  </MotionBox>
-                }>
-                  <Text style={{ fontStyle: 'italic' }}>{item.title}</Text>
+                <Card
+                  className="w-3/4"
+                  cover={
+                    <MotionBox
+                      height="300px"
+                      width="100%"
+                      overflow="hidden"
+                      initial="hidden"
+                      animate={imagesLoaded[item.key] ? "visible" : "hidden"}
+                      variants={fadeInUp}
+                    >
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                        onLoad={() => handleImageLoad(item.key)}
+                      />
+                    </MotionBox>
+                  }
+                >
+                  <Text style={{ fontStyle: "italic" }}>{item.title}</Text>
                 </Card>
               </GridItem>
             ))}
@@ -98,4 +118,3 @@ export function SkillsGrid() {
 }
 
 export default SkillsGrid;
-

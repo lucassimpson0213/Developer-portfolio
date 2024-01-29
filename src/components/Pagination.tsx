@@ -26,7 +26,7 @@ export default function Page() {
 
   return (
     <>
-      <Flex justify="center" className={`mt-40 h-50`}>
+      <Flex justify="center" className={`mt-80 h-50`}>
         <MotionPagination
           className="justify-center"
           current={page} // Current page number

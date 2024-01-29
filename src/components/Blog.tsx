@@ -64,4 +64,3 @@ const Blog: React.FC<Props> = ({ name, body, date, image }) => {
 };
 
 export default Blog;
-

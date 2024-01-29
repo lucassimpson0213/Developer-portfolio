@@ -11,6 +11,7 @@ import LoginForm from "./components/Loginform";
 
 // Non-lazy loaded components
 import Home from "./components/Home";
+import HooksExample from "./components/HooksExample";
 
 // Lazy load the components
 const BlogDashboard = lazy(() => import("./components/BlogDashboard"));
@@ -51,6 +52,13 @@ function AnimatedRoutes() {
       />
       <Route path="/about" element={<LoginForm />} />
       <Route
+        path="/skills/examples"
+        element={
+          <>
+            <HooksExample />{" "}
+          </>
+        }
+      />
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );
@@ -65,7 +73,7 @@ function App() {
           <Suspense fallback={<div>Loading...</div>}>
             <AnimatedRoutes />
           </Suspense>
-          <Pagination />
+          
         </div>
       </Router>
     </ChakraProvider>

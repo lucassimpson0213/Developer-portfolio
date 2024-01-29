@@ -24,7 +24,12 @@ const EmailInput: React.FC<EmailInputProps> = ({
   };
 
   return (
-    <motion.div initial="hidden" animate="visible" variants={inputVariants} layout>
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={inputVariants}
+      layout
+    >
       <Text mb="15px" mt={"10px"}>
         {label} {value}
       </Text>
