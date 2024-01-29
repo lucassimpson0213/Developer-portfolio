@@ -6,19 +6,19 @@ import {
   useLocation,
 } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import Header from "./components/Header";
-import LoginForm from "./components/Loginform";
+import Header from "./components/Utils/Header";
+import LoginForm from "./components/Contact/Loginform";
 
 // Non-lazy loaded components
-import Home from "./components/Home";
-import HooksExample from "./components/HooksExample";
+import Home from "./components/Utils/Home";
+import HooksExample from "./components/Skills/Examples/HooksExample";
 
 // Lazy load the components
-const BlogDashboard = lazy(() => import("./components/BlogDashboard"));
-const SkillsGrid = lazy(() => import("./components/SkillsGrid"));
-const Pagination = lazy(() => import("./components/Pagination"));
-const Contact = lazy(() => import("./components/Contact"));
-const HomePage = lazy(() => import("./components/HomePage"));
+const BlogDashboard = lazy(() => import("./components/Blog/BlogDashboard"));
+const SkillsGrid = lazy(() => import("./components/Skills/SkillsGrid"));
+const Pagination = lazy(() => import("./components/Utils/Pagination"));
+const Contact = lazy(() => import("./components/Contact/Contact"));
+const HomePage = lazy(() => import("./components/Home/HomePage"));
 
 function AnimatedRoutes() {
   const location = useLocation();
