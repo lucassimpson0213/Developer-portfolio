@@ -1,8 +1,8 @@
-import { Card, Button, Flex } from "@chakra-ui/react";
-import { Avatar } from "antd";
+import { Card, Button, Flex, Avatar, Spacer } from "@chakra-ui/react";
+
 import { useState, useEffect } from "react";
 import EffectDisplay from "./EffectDisplay";
-import reactIcon from "../assets/reactIcon.svg";
+import icon from '../assets/train-8517089_1280.jpg'
 import MotionExample from "./MotionExample";
 
 function HooksExample() {
@@ -23,21 +23,30 @@ function StateExample() {
   }
 
   return (
-    <>
-      <Flex justify={"center"} h={"30vh"}>
-        <Card bg={"grey"} w={"20vw"} h={"30vh"}>
-          <Avatar size={100} src={reactIcon}></Avatar>
-          <div>{value}</div>
-          <Button w={"30%"} onClick={handleClick}>
-            click me!
-          </Button>
+
+  <>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '70vh', width: '40%' }}>
+      <Flex gap={3} direction='column' align='center' justify='center' w='80%' h='300px'>
+        <Card bg='gray.300' w='100%' h='100%'>
+          <Flex direction='column' align='center' justify='center' h='100%'>
+              <Avatar size='xl' src={icon} />
+              <Spacer/>
+              <div>{value}</div>
+              
+            <Button w='30%' onClick={handleClick}>
+              Click me!
+            </Button>
+          </Flex>
         </Card>
       </Flex>
-      
+    </div>
+  </>
+);
+
+
+
        
-      
-    </>
-  );
+   
 }
 
 function EffectExample() {

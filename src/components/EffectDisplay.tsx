@@ -28,7 +28,7 @@ function EffectDisplay({ quotes }) {
           Use Effect Example
         </Heading>
       </Center>
-      <Divider />
+      <Divider className="mb-20" />
       <Flex justify={'center'} alignContent={'center'}>
         <Flex w={'700px'} h={'200px'} justify={'center'}>
           <Carousel dotPosition={'right'}>

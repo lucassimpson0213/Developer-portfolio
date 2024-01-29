@@ -7,7 +7,7 @@ function MotionExample() {
     return (
         <>
             <Box h={300} w="100%">
-        <Center><Heading>Framer Motion Example</Heading></Center>
+        <Center><Heading fontFamily={'adobe-garamond-pro'}>Framer Motion Example</Heading></Center>
         <motion.div
         className="outline outline-blue-gray-900  w-20"
         whileHover={{ scale: 1.2 }}
