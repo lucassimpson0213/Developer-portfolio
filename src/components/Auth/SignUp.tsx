@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import useSignUp from '../hooks/useSignUp'; // Adjust the import path as needed
+import { useState } from "react";
+import useSignUp from "../hooks/useSignUp"; // Adjust the import path as needed
 
 export default function SignUpComponent() {
   const { signUp, isLoading, error, isSuccessful } = useSignUp();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSignUp = async () => {
     // Validate email and password if needed
@@ -12,7 +12,7 @@ export default function SignUpComponent() {
     try {
       await signUp({ email, password });
     } catch (error) {
-      console.error('Error during sign up:', error);
+      console.error("Error during sign up:", error);
     }
   };
 
@@ -45,4 +45,3 @@ export default function SignUpComponent() {
     </div>
   );
 }
-

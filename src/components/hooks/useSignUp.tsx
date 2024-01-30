@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { supabase } from '../../../../viteappportoflio/supabaseclient.js';
+import { useState } from "react";
+import { supabase } from "../../../supabaseclient";
 
 interface SignUpData {
   email: string;
@@ -38,10 +38,10 @@ function useSignUp(): SignUpResult {
     } catch (error) {
       if (error instanceof Error) {
         // Handle Error objects specifically
-        setError(error.message || 'Failed to sign up.');
+        setError(error.message || "Failed to sign up.");
       } else {
         // Handle other types of unexpected errors
-        setError('An unexpected error occurred.');
+        setError("An unexpected error occurred.");
       }
     } finally {
       setIsLoading(false);
@@ -52,5 +52,3 @@ function useSignUp(): SignUpResult {
 }
 
 export default useSignUp;
-
-
