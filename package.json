@@ -28,7 +28,7 @@
     "prettier": "npx prettier src src/App.tsx --check",
 
 
-      "prettier:fix": "npm run prettier -- --write",
+    "prettier:fix": "npm run prettier -- --write",
 
 
     "format": "npm run prettier:fix && npm run lint:fix",
@@ -71,6 +71,9 @@
 
 
     "@supabase/supabase-js": "^2.39.3",
+
+
+    "@vitejs/plugin-react": "^4.2.1",
 
 
     "antd": "^5.12.8",
@@ -140,6 +143,9 @@
 
 
     "@vitejs/plugin-react-swc": "^3.5.0",
+
+
+    "autoprefixer": "^10.4.17",
 
 
     "eslint": "^8.56.0",
