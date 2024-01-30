@@ -1,7 +1,12 @@
-import { Icon, Box, Text, Image, Flex } from "@chakra-ui/react";
+import {  Box, Text, Image, Flex, Heading } from "@chakra-ui/react";
 import { PiHandWaving } from "react-icons/pi";
 import { motion } from "framer-motion";
-import krystal from "../../assets/IMG_4282-min.jpeg";
+import pic from "../../assets/IMG_4352-fotor-20240130145857.png"
+import { GiPointing } from "react-icons/gi";
+import { CiInstagram } from "react-icons/ci";
+import { CiFacebook } from "react-icons/ci";
+import { FaGithub } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const contentVariants = {
@@ -17,30 +22,53 @@ function HomePage() {
         variants={contentVariants}
         layout
       >
-        <Flex w="100%" justify="center" align="center" padding="4">
-          <Box textAlign="center" marginTop="4rem" width="30%">
+        <Flex w="100%" alignItems='center' justify="center"  >
+          <Box alignContent={'center'} textAlign="center" marginTop="4rem" width="30%">
             <div>
-              <Text
+              <Heading
                 fontFamily={"adobe-garamond-pro"}
-                fontSize="2xl"
+                fontSize="3xl"
                 marginBottom="1rem"
               >
-                <Icon as={PiHandWaving} ml={5} w={6} h={6} /> Hi there, I'm{" "}
-                <strong>Lucas</strong>
+                <PiHandWaving size={60} />
+               
+                Hi there, I'm Lucas!
+              </Heading>
+              <Text fontFamily={'adobe-garamond-pro'}  mb={3}>This is my webpage! I am a junior at Illinois state university! </Text>
+               <Text fontFamily={'adobe-garamond-pro'}>
+                I study Computer Science and I have an internship with GrowMark for Summer 2024
               </Text>
-              <Text fontFamily={"adobe-garamond-pro"} fontSize="xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua...
+
+              <Text>
+                <div>
+                  
+                </div>
               </Text>
+              <Text fontFamily={"adobe-garamond-pro"} >
+               
+                 I used React and several component Libraries to construct this. 
+                I enjoy doing web development in my spare time.
+                </Text>
+
+              <Text fontFamily={'adobe-garamond-pro'}>
+                Check out this project on github. My socials are linked below
+              </Text> <GiPointing size={40}/>
             </div>
           </Box>
           <Image
             ml={10}
             borderRadius="full"
             boxSize="120px"
-            src={krystal}
-            alt="Krystal"
+            src={pic}
+            alt="My girlfriend krystal and I"
           />
+        </Flex>
+
+
+        <Flex mt={20} w={'91vw'} justify={'center'} align={'center'} direction={'row'}>
+          <CiInstagram className="mr-5" size={'40'}><a href="https://www.instagram.com/lucassimpson33/"></a></CiInstagram>
+          <CiFacebook  className="mr-5" size={'40'}><a href="https://www.facebook.com/profile.php?id=100005845240530"></a></CiFacebook>
+          <FaGithub  className="mr-5" size={'40'}><a href="https://github.com/lucassimpson0213"></a></FaGithub>
         </Flex>
       </motion.div>
     </>

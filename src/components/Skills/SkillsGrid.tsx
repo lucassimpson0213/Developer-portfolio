@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { Grid, GridItem, Box, Text, Divider, Image } from "@chakra-ui/react";
+import { Grid, GridItem, Box, Text, Divider, Image, Spacer } from "@chakra-ui/react";
 import { Card } from "antd";
 import { LazyMotion, m, domAnimation } from "framer-motion";
-import FactAccordian from "./FactAccordian";
 
 import pic3 from "../../assets/pic3.jpg";
 import gow from "../../../public/stock-photo-boy-playing-god-of-war-ragnarok-with-playstation-controller-jul-sao-paulo-brazil-2180836335.jpg";
 import krystal from "../../assets/IMG_4746-min.jpeg";
-import nature from "../../assets/IMG_4282-min.jpeg";
+import pic from '../../assets/maxresdefault.jpg'
+
 
 // Motion components using 'm' prefix
 const MotionDivider = m(Divider);
@@ -17,7 +17,7 @@ type ImageLoadedState = {
   pic3: boolean;
   gow: boolean;
   krystal: boolean;
-  nature: boolean;
+  pic: boolean;
 };
 
 export function SkillsGrid() {
@@ -25,7 +25,7 @@ export function SkillsGrid() {
     pic3: false,
     gow: false,
     krystal: false,
-    nature: false,
+    pic: false,
   });
 
   useEffect(() => {
@@ -52,10 +52,10 @@ export function SkillsGrid() {
   };
 
   const images: ImageItem[] = [
-    { src: pic3, title: "Another Skill", key: "pic3" },
+    { src: pic3, title: "I like to program in Javascript and React", key: "pic3" },
     { src: gow, title: "My Favorite Game of 2024", key: "gow" },
     { src: krystal, title: "My Beautiful Girlfriend", key: "krystal" },
-    { src: nature, title: "A Picture I Took at a Local Park", key: "nature" },
+    { src: pic, title: "I study at Illinois State University where I'm getting a Bachelor's in Computer Science", key: "pic" },
   ];
 
   return (
@@ -111,7 +111,10 @@ export function SkillsGrid() {
           </Grid>
         </div>
 
-        <FactAccordian />
+        <Spacer />
+        <div>
+
+        </div>
       </>
     </LazyMotion>
   );

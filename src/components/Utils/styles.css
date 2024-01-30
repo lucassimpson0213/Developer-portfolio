@@ -12,9 +12,10 @@ button, p {
 .NavigationMenuList {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   list-style: none;
-  padding: 30px;
+  padding: 10px;
   margin: 20px 0; /* Adjust margin as needed */
   background-color: var(--mauve-1); /* Background color for the menu */
   border-radius: 8px; /* Rounded corners */

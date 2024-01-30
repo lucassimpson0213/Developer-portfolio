@@ -13,14 +13,14 @@ function CodeExample({str}: CodeProps) {
   const code = str;
   return (
     <>
-      <Flex justify="center" className="w-screen">
+      <Flex justify="center" className="w-screen mb-20" >
         <Card>
           
           <Code></Code>
           <Editor
-            width="50vw"
+            width="100vw"
             height="300px"
-            language="javascript"
+            language="typescript"
             theme="vs-dark"
             value={code}
             options={{

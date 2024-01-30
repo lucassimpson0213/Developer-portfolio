@@ -26,7 +26,7 @@ const InputContainer: React.FC<InputProps> = ({ type, placeholder, label }) => {
       variants={inputVariants}
       layout
     >
-      <Text mb="15px" mt="10px">
+      <Text mb={20}>
         {label} {value}
       </Text>
       <Input
@@ -50,29 +50,32 @@ export default function LoginForm() {
 
   return (
     <>
-      <br />
-      <div className="mt-35">
+      
+      <div className="mt-50 h-40">
         <Box textAlign="center" mt={10}>
           <Heading fontSize="4vh" fontFamily={"adobe-garamond-pro"}>
             Contact
           </Heading>
         </Box>
-        <Flex width="full" align="center" justifyContent="center" mt={2}>
+        <Flex width="full"  align="center" justifyContent="center" >
           <motion.form
             initial="hidden"
             animate="visible"
             variants={formVariants}
           >
+            <br/>
             <InputContainer
               placeholder={"email@example.com"}
               type={"email"}
               label={"Email: "}
             />
+            <br/>
             <InputContainer
               placeholder={"Linkedin"}
               type={"text"}
               label={"LinkedIn:"}
             />
+            <br/>
             <Button mt={5} type="submit">
               Submit
             </Button>

@@ -3,6 +3,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import './styles.css';
 import NewModel from './NewModel';
 
+
 interface LinkProps {
   href: string;
   children: React.ReactNode;
@@ -40,13 +41,10 @@ const NavigationMenuComponent: React.FC = () => (
         <Link href="/blog">Blog</Link>
       </NavigationMenu.Item>
       <NavigationMenu.Item className="NavigationMenuItem">
-        <Link href="/signup">SignUp</Link>
+        <Link href="/signup">Sign Up</Link>
       </NavigationMenu.Item>
       <NavigationMenu.Item className="NavigationMenuItem">
         <Link href="/skills/examples">Examples</Link>
-      </NavigationMenu.Item>
-      <NavigationMenu.Item className="NavigationMenuItem">
-        <Link href="/contact">Contact</Link>
       </NavigationMenu.Item>
       <NewModel
         ModelTitle="Introduction"

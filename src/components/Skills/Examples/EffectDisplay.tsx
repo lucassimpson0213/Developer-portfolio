@@ -9,49 +9,49 @@ const contentStyle: React.CSSProperties = {
   lineHeight: "160px",
   textAlign: "center",
   background: "#364d79",
-  width: "60vw", // Moved inside the style for consistency
+  width: "60vw",
 };
 
 interface Quote {
   text: string;
-  author?: string; // Assuming author is optional
+  author?: string;
 }
 
 interface DisplayProps {
-  quotes: Quote[]; // Changed to array of Quote
+  quotes: Quote[];
 }
 
-function EffectDisplay({ quotes }: DisplayProps) {
+const CarouselItem: React.FC<Quote> = ({ text, author }) => (
+  <div>
+    <motion.div whileHover={{ scale: 1.1 }} style={contentStyle}>
+      {text} - {author || "Unknown"}
+    </motion.div>
+  </div>
+);
+
+const EffectDisplay: React.FC<DisplayProps> = ({ quotes }) => {
   if (!Array.isArray(quotes) || quotes.length === 0) {
     return <div>No quotes available</div>;
   }
 
   return (
-    <div>
+    <div className="sm:w-screen md:w-screen">
       <Center>
-        <Heading mt={10} mb={5} fontFamily={"adobe-garamond-pro"}>
+        <Heading mt={10} mb={5} fontFamily="adobe-garamond-pro">
           Use Effect Example
         </Heading>
       </Center>
       <Divider className="mb-20" />
-      <Flex justify={"center"} alignContent={"center"}>
-        <Carousel
-          dotPosition={"right"}
-          style={{ width: "700px", height: "200px" }}
-        >
+      <Flex justify="center" alignContent="center">
+        <Carousel dotPosition="right" style={{ width: "700px", height: "200px" }}>
           {quotes.map((quote, index) => (
-            <div key={index}>
-              <motion.div whileHover={{ scale: 1.1 }}>
-                <h3 style={contentStyle}>
-                  {quote.text} - {quote.author ?? "Unknown"}
-                </h3>
-              </motion.div>
-            </div>
+            <CarouselItem key={index} {...quote} />
           ))}
         </Carousel>
       </Flex>
     </div>
   );
-}
+};
 
 export default EffectDisplay;
+

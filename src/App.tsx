@@ -34,8 +34,8 @@ function AnimatedRoutes() {
         element={
           <>
             <Header
-              header="My Blog"
-              body="These are my blog posts, Thank you for being here"
+              header="Things I'm Interested in"
+              body="I love programming, hanging out with my girlfriend and working out!"
             />
             <SkillsGrid />
           </>

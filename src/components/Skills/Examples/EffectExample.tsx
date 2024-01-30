@@ -44,8 +44,11 @@ export default function EffectExample() {
   if (error) {
     return <ErrorComponent message={error} />;
   }
-
-  return <EffectDisplay quotes={quotes} />;
+  const arr = [];
+  for (let i = 0; i < 3; i++) {
+    arr.push(quotes[i])
+  }
+  return <EffectDisplay quotes={arr} />;
 }
 
 const LoadingComponent = () => {
