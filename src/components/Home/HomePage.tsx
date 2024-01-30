@@ -6,7 +6,7 @@ import { GiPointing } from "react-icons/gi";
 import { CiInstagram } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
 import { FaGithub } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+
 
 function HomePage() {
   const contentVariants = {
