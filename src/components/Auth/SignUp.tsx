@@ -1,46 +1,48 @@
 import React, { useState } from 'react';
-import useSignUp from '../hooks/useSignUp';
-import { useRedirect } from '../hooks/useRedirect';
+import useSignUp from '../hooks/useSignUp'; // Adjust the import path as needed
 
-export default function SignUp() {
-  const { signUp, isSuccessful } = useSignUp();
-  const [user, setUser] = useState('');
+export default function SignUpComponent() {
+  const { signUp, isLoading, error, isSuccessful } = useSignUp();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const redirect = useRedirect('/congratulations');
 
-  const handleSubmit = async (e:any) => {
-    e.preventDefault(); // Prevent the default form submission
+  const handleSignUp = async () => {
+    // Validate email and password if needed
 
-    // Call the signUp function with user and password
-    await signUp({
-      username: user,
-      password: password,
-      email: user, // Assuming email is the same as the username
-      // Add other relevant fields if needed
-    });
+    try {
+      await signUp({ email, password });
+    } catch (error) {
+      console.error('Error during sign up:', error);
+    }
   };
 
   if (isSuccessful) {
-    return redirect;
+    // Redirect or show a success message
+    return <div>Sign up successful!</div>;
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input
-          onChange={(e) => setUser(e.target.value)}
-          type="email"
-          placeholder="example@gmail.com"
-        ></input>
-        <label>Password:</label>
-        <input
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          placeholder="password"
-        ></input>
-        <input type="submit" value="Submit"></input>
-      </form>
+      <label>Email:</label>
+      <input
+        type="email"
+        placeholder="example@gmail.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <label>Password:</label>
+      <input
+        type="password"
+        placeholder="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleSignUp} disabled={isLoading}>
+        Sign Up
+      </button>
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Error: {error}</div>}
     </div>
   );
 }
+

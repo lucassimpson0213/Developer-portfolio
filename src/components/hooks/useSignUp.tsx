@@ -1,21 +1,20 @@
 import { useState } from 'react';
-import { supabase } from '../../../../viteappportoflio/supabaseclient.js'; // Import the initialized Supabase client
+import { supabase } from '../../../../viteappportoflio/supabaseclient.js';
 
 interface SignUpData {
-  username: string;
-  password: string;
   email: string;
+  password: string;
   // Add other relevant fields
 }
 
-interface SignUpHook {
-  signUp: (userData: SignUpData) => Promise<void>;
+interface SignUpResult {
   isLoading: boolean;
   error: string | null;
   isSuccessful: boolean;
+  signUp: (userData: SignUpData) => Promise<void>;
 }
 
-function useSignUp(): SignUpHook {
+function useSignUp(): SignUpResult {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [isSuccessful, setIsSuccessful] = useState<boolean>(false);
@@ -53,4 +52,5 @@ function useSignUp(): SignUpHook {
 }
 
 export default useSignUp;
+
 
