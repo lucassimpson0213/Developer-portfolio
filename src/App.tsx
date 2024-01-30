@@ -8,6 +8,7 @@ import {
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Utils/Header";
 import LoginForm from "./components/Contact/Loginform";
+import {Theme} from '@radix-ui/themes'
 
 // Non-lazy loaded components
 import Home from "./components/Utils/Home";
@@ -70,6 +71,7 @@ function AnimatedRoutes() {
 
 function App() {
   return (
+    <Theme>
     <ChakraProvider>
       <Router>
         <div className="App">
@@ -79,7 +81,7 @@ function App() {
           </Suspense>
         </div>
       </Router>
-    </ChakraProvider>
+    </ChakraProvider></Theme>
   );
 }
 

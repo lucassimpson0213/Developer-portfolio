@@ -7,8 +7,12 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  Flex,
+  Text,
+  Avatar
+
 } from "@chakra-ui/react";
-import { Avatar, Flex, Typography } from "antd";
+
 import { useModalControl } from "../hooks/useModelControl"; // Ensure correct path
 import { useRedirect } from "../hooks/useRedirect";
 
@@ -29,7 +33,7 @@ function NewModel({ ModelTitle, ModelText }: ModelProps) {
   return (
     <>
       <Flex justify="center" align="center">
-        <Avatar size={70} onClick={openModal}>
+        <Avatar  onClick={openModal}>
           LS
         </Avatar>
       </Flex>
@@ -39,7 +43,7 @@ function NewModel({ ModelTitle, ModelText }: ModelProps) {
           <ModalHeader>{ModelTitle}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Typography.Text>{ModelText}</Typography.Text>
+            <Text>{ModelText}</Text>
           </ModalBody>
 
           <ModalFooter>
