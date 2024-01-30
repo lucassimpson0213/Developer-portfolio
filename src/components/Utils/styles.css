@@ -12,8 +12,9 @@ button, p {
 .NavigationMenuList {
   display: flex;
   justify-content: center;
+  gap: 20px;
   list-style: none;
-  padding: 0;
+  padding: 30px;
   margin: 20px 0; /* Adjust margin as needed */
   background-color: var(--mauve-1); /* Background color for the menu */
   border-radius: 8px; /* Rounded corners */
@@ -22,7 +23,7 @@ button, p {
 
 .NavigationMenuLink {
   display: block;
-  padding: 12px 16px; /* Increased padding for larger click areas */
+  padding: 20px 40px; /* Increased padding for larger click areas */
   text-decoration: none;
   color: var(--indigo-11); /* Link text color */
   font-size: 16px; /* Larger font size for readability */
@@ -41,7 +42,7 @@ button, p {
 @media (max-width: 768px) {
   .NavigationMenuList {
     flex-direction: column; /* Stack items vertically on smaller screens */
-    padding: 10px; /* Adjust padding for smaller screens */
+    padding: 30px; /* Adjust padding for smaller screens */
   }
 
   .NavigationMenuLink {

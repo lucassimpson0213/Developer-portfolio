@@ -15,7 +15,7 @@ function CodeExample({str}: CodeProps) {
     <>
       <Flex justify="center" className="w-screen">
         <Card>
-          <div>CodeExample</div>
+          
           <Code></Code>
           <Editor
             width="50vw"
