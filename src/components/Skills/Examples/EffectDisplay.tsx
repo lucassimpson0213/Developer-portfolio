@@ -1,3 +1,4 @@
+import React from 'react';
 import { Carousel } from "antd";
 import { Flex, Heading, Divider, Center } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -6,16 +7,23 @@ const contentStyle: React.CSSProperties = {
   height: "160px",
   color: "#fff",
   lineHeight: "160px",
-  width: "60vw",
-
   textAlign: "center",
   background: "#364d79",
+  width: "60vw" // Moved inside the style for consistency
 };
 
-function EffectDisplay({ quotes }) {
-  // Ensure that quotes is always an array
-  if (!Array.isArray(quotes)) {
-    return <div>Invalid data</div>;
+interface Quote {
+  text: string;
+  author?: string; // Assuming author is optional
+}
+
+interface DisplayProps {
+  quotes: Quote[]; // Changed to array of Quote
+}
+
+function EffectDisplay({ quotes }: DisplayProps) {
+  if (!Array.isArray(quotes) || quotes.length === 0) {
+    return <div>No quotes available</div>;
   }
 
   return (
@@ -27,22 +35,21 @@ function EffectDisplay({ quotes }) {
       </Center>
       <Divider className="mb-20" />
       <Flex justify={"center"} alignContent={"center"}>
-        <Flex w={"700px"} h={"200px"} justify={"center"}>
-          <Carousel dotPosition={"right"}>
-            {quotes.map((quote, index) => (
-              <div key={index}>
-                <motion.div whileHover={{ scale: 1.1 }}>
-                  <h3 style={contentStyle}>
-                    {quote.text} - {quote.author}
-                  </h3>
-                </motion.div>
-              </div>
-            ))}
-          </Carousel>
-        </Flex>
+        <Carousel dotPosition={"right"} style={{ width: "700px", height: "200px" }}>
+          {quotes.map((quote, index) => (
+            <div key={index}>
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <h3 style={contentStyle}>
+                  {quote.text} - {quote.author ?? "Unknown"}
+                </h3>
+              </motion.div>
+            </div>
+          ))}
+        </Carousel>
       </Flex>
     </div>
   );
 }
 
 export default EffectDisplay;
+

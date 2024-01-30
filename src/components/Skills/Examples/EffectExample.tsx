@@ -1,39 +1,57 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import EffectDisplay from "./EffectDisplay";
 
+interface Quote {
+  text: string;
+  author?: string;
+}
+
+interface ErrorComponentProps {
+  message: string | null;
+}
+
 export default function EffectExample() {
-  const [quotes, setQuotes] = useState([]); // Rename to `quotes` for clarity
-  const [isLoading, setIsLoading] = useState(true); // Better naming for the loading state
-  const [error, setError] = useState("");
-  // Separate state for handling errors
+  const [quotes, setQuotes] = useState<Quote[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    requestData();
+    const fetchQuotes = async () => {
+      try {
+        const response = await fetch("https://type.fit/api/quotes");
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: Unable to fetch quotes`);
+        }
+        const json: Quote[] = await response.json();
+        setQuotes(json);
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error("Error fetching data: ", error);
+          setError("Failed to load quotes. Please try again later.");
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchQuotes();
   }, []);
 
-  async function requestData() {
-    try {
-      const response = await fetch("https://type.fit/api/quotes");
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const json = await response.json();
-      setQuotes(json); // Assuming the API returns an array directly
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-      setError("there was an error try again");
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <ErrorComponent message={error} />;
   }
 
-  return <EffectDisplay quotes={quotes} />; // Pass the entire array to `EffectDisplay`
+  return <EffectDisplay quotes={quotes} />;
 }
+
+const LoadingComponent = () => {
+  return <div>Loading...</div>;
+};
+
+const ErrorComponent = ({ message }: ErrorComponentProps) => {
+  return <div>Error: {message}</div>;
+};

@@ -67,6 +67,9 @@
     "@monaco-editor/react": "^4.6.0",
 
 
+    "@supabase/supabase-js": "^2.39.3",
+
+
     "antd": "^5.12.8",
 
 
