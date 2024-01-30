@@ -12,7 +12,8 @@ import LoginForm from "./components/Contact/Loginform";
 // Non-lazy loaded components
 import Home from "./components/Utils/Home";
 import HooksExample from "./components/Skills/Examples/HooksExample";
-import SignUp from "./components/Auth/SignUp";
+import SignUpv from "./components/Auth/SignUpv";
+import Congrats from "./components/Auth/Congrats";
 
 // Lazy load the components
 const BlogDashboard = lazy(() => import("./components/Blog/BlogDashboard"));
@@ -61,8 +62,8 @@ function AnimatedRoutes() {
         }
       />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/congratulations" element={<div>congratulations!</div>} />
+      <Route path="/signup" element={<SignUpv />} />
+      <Route path="/congratulations" element={<Congrats />} />
     </Routes>
   );
 }
