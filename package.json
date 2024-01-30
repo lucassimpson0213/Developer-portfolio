@@ -28,7 +28,7 @@
     "prettier": "npx prettier src src/App.tsx --check",
 
 
-    "prettier:fix": "npm run prettier -- --write",
+      "prettier:fix": "npm run prettier -- --write",
 
 
     "format": "npm run prettier:fix && npm run lint:fix",
