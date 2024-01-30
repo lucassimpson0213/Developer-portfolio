@@ -61,7 +61,7 @@ function AnimatedRoutes() {
         }
       />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/signup" element={<SignUp/>} />
+      <Route path="/signup" element={<SignUp />} />
       <Route path="/congratulations" element={<div>congratulations!</div>} />
     </Routes>
   );

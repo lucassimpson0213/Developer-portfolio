@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Carousel } from "antd";
 import { Flex, Heading, Divider, Center } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -9,7 +9,7 @@ const contentStyle: React.CSSProperties = {
   lineHeight: "160px",
   textAlign: "center",
   background: "#364d79",
-  width: "60vw" // Moved inside the style for consistency
+  width: "60vw", // Moved inside the style for consistency
 };
 
 interface Quote {
@@ -35,7 +35,10 @@ function EffectDisplay({ quotes }: DisplayProps) {
       </Center>
       <Divider className="mb-20" />
       <Flex justify={"center"} alignContent={"center"}>
-        <Carousel dotPosition={"right"} style={{ width: "700px", height: "200px" }}>
+        <Carousel
+          dotPosition={"right"}
+          style={{ width: "700px", height: "200px" }}
+        >
           {quotes.map((quote, index) => (
             <div key={index}>
               <motion.div whileHover={{ scale: 1.1 }}>
@@ -52,4 +55,3 @@ function EffectDisplay({ quotes }: DisplayProps) {
 }
 
 export default EffectDisplay;
-

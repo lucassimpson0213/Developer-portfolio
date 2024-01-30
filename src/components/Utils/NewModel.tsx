@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -10,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Avatar, Flex, Typography } from "antd";
-import { useModalControl } from '../hooks/useModelControl'; // Ensure correct path
+import { useModalControl } from "../hooks/useModelControl"; // Ensure correct path
 import { useRedirect } from "../hooks/useRedirect";
 
 interface ModelProps {
@@ -20,7 +19,7 @@ interface ModelProps {
 
 function NewModel({ ModelTitle, ModelText }: ModelProps) {
   const { isOpen, openModal, closeModal } = useModalControl();
-  const redirectTo = useRedirect('/signup');
+  const redirectTo = useRedirect("/signup");
 
   const handleAction = () => {
     closeModal(); // Corrected to use closeModal
@@ -30,11 +29,11 @@ function NewModel({ ModelTitle, ModelText }: ModelProps) {
   return (
     <>
       <Flex justify="center" align="center">
-        <Avatar size={70} onClick={openModal}> 
+        <Avatar size={70} onClick={openModal}>
           LS
         </Avatar>
       </Flex>
-      <Modal isOpen={isOpen} onClose={closeModal}> 
+      <Modal isOpen={isOpen} onClose={closeModal}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>{ModelTitle}</ModalHeader>
@@ -44,10 +43,12 @@ function NewModel({ ModelTitle, ModelText }: ModelProps) {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={closeModal}> 
+            <Button colorScheme="blue" mr={3} onClick={closeModal}>
               Close
             </Button>
-            <Button onClick={handleAction} variant="ghost">Redirect</Button>
+            <Button onClick={handleAction} variant="ghost">
+              Redirect
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -56,6 +57,3 @@ function NewModel({ ModelTitle, ModelText }: ModelProps) {
 }
 
 export default NewModel;
-
-
-
