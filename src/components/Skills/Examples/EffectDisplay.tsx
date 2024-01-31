@@ -43,7 +43,10 @@ const EffectDisplay: React.FC<DisplayProps> = ({ quotes }) => {
       </Center>
       <Divider className="mb-20" />
       <Flex justify="center" alignContent="center">
-        <Carousel dotPosition="right" style={{ width: "700px", height: "200px" }}>
+        <Carousel
+          dotPosition="right"
+          style={{ width: "700px", height: "200px" }}
+        >
           {quotes.map((quote, index) => (
             <CarouselItem key={index} {...quote} />
           ))}
@@ -54,4 +57,3 @@ const EffectDisplay: React.FC<DisplayProps> = ({ quotes }) => {
 };
 
 export default EffectDisplay;
-

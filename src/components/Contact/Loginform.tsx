@@ -1,87 +1,106 @@
-import React, { useState } from "react";
-import { Flex, Box, Heading, Input, Button, Text } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  FormControl,
+  FormLabel,
+  Heading,
+  HStack,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { supabase } from "../../../supabaseclient"; // Adjust the path according to your project structure
+import { useRedirect } from "../hooks/useRedirect"; // Adjust the path according to your project structure
 
-type InputProps = {
-  type: string;
-  placeholder: string;
-  label: string;
-};
+export default function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(""); // Add a state for error handling
 
-const InputContainer: React.FC<InputProps> = ({ type, placeholder, label }) => {
-  const [value, setValue] = useState<string>("");
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setValue(event.target.value);
+  const redirect = useRedirect("/congratulations");
 
-  // Animation for each input field
-  const inputVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  async function handleSignIn() {
+    setLoading(true);
+    setError("");
+    const { user, error } = await supabase.auth.signIn({
+      email: email,
+      password: password
+    });
 
-  return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={inputVariants}
-      layout
-    >
-      <Text mb={20}>
-        {label} {value}
-      </Text>
-      <Input
-        type={type}
-        value={value}
-        onChange={handleChange}
-        placeholder={placeholder}
-        size="lg"
-        required={true}
-      />
-    </motion.div>
-  );
-};
+    if (error) {
+      setError(error.message);
+    } else {
+      redirect();
+    }
+    setLoading(false);
+  }
 
-export default function LoginForm() {
-  // Animation for the whole form
-  const formVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { delay: 0.2, duration: 0.6 } },
-  };
+  const togglePasswordVisibility = () => setShow(!show);
 
   return (
-    <>
-      
-      <div className="mt-50 h-40">
-        <Box textAlign="center" mt={10}>
-          <Heading fontSize="4vh" fontFamily={"adobe-garamond-pro"}>
-            Contact
-          </Heading>
-        </Box>
-        <Flex width="full"  align="center" justifyContent="center" >
-          <motion.form
-            initial="hidden"
-            animate="visible"
-            variants={formVariants}
-          >
-            <br/>
-            <InputContainer
-              placeholder={"email@example.com"}
-              type={"email"}
-              label={"Email: "}
-            />
-            <br/>
-            <InputContainer
-              placeholder={"Linkedin"}
-              type={"text"}
-              label={"LinkedIn:"}
-            />
-            <br/>
-            <Button mt={5} type="submit">
-              Submit
+    <Container maxW="lg" py={{ base: "12", md: "24" }} px={{ base: "0", sm: "8" }}>
+      <Stack spacing="8">
+        <Stack spacing="6">
+          <Stack spacing={{ base: "2", md: "3" }} textAlign="center">
+            <Heading size={{ base: "xs", md: "sm" }}>Sign In</Heading>
+            <Text color="fg.muted">
+              Don’t have an account? <Link href="/signup">Sign Up</Link>
+            </Text>
+          </Stack>
+        </Stack>
+        <Box py={{ base: "0", sm: "8" }} px={{ base: "4", sm: "10" }}>
+          <Stack spacing="6">
+            <Stack spacing="5">
+              <FormControl>
+                <FormLabel htmlFor="email">Email</FormLabel>
+                <Input
+                  id="email"
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel htmlFor="password">Password</FormLabel>
+                <InputGroup size="md">
+                  <Input
+                    pr="4.5rem"
+                    type={show ? "text" : "password"}
+                    placeholder="Enter password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button
+                      h="1.75rem"
+                      size="sm"
+                      onClick={togglePasswordVisibility}
+                    >
+                      {show ? "Hide" : "Show"}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+              </FormControl>
+            </Stack>
+            <HStack justify="space-between">
+              <Checkbox defaultChecked>Remember me</Checkbox>
+              <Button variant="text" size="sm">
+                Forgot password?
+              </Button>
+            </HStack>
+            {error && <Text color="red.500">{error}</Text>}
+            <Button isLoading={loading} onClick={handleSignIn}>
+              Sign In
             </Button>
-          </motion.form>
-        </Flex>
-      </div>
-    </>
+          </Stack>
+        </Box>
+      </Stack>
+    </Container>
   );
 }

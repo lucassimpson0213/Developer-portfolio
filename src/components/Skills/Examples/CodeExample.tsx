@@ -2,20 +2,16 @@ import { Code, Card } from "@chakra-ui/react";
 import { Editor } from "@monaco-editor/react";
 import { Flex } from "antd";
 
-
-
-
-interface CodeProps  {
-  str: string
+interface CodeProps {
+  str: string;
 }
 
-function CodeExample({str}: CodeProps) {
+function CodeExample({ str }: CodeProps) {
   const code = str;
   return (
     <>
-      <Flex justify="center" className="w-screen mb-20" >
+      <Flex justify="center" className="w-screen mb-20">
         <Card>
-          
           <Code></Code>
           <Editor
             width="100vw"

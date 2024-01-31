@@ -1,40 +1,57 @@
-import  { useState } from 'react';
-import { Card, Button, Flex, Avatar,Divider} from '@chakra-ui/react';
-import EffectExample from './EffectExample';
-import MotionExample from './MotionExample';
-import CodeExample from './CodeExample';
-import Header from '../../Utils/Header'
-import icon from '../../../assets/train-8517089_1280.jpg';
-
+import { useState } from "react";
+import { Card, Button, Flex, Avatar, Divider } from "@chakra-ui/react";
+import EffectExample from "./EffectExample";
+import MotionExample from "./MotionExample";
+import CodeExample from "./CodeExample";
+import Header from "../../Utils/Header";
+import icon from "../../../assets/train-8517089_1280.jpg";
 
 function StateExample() {
   const [value, setValue] = useState(0);
 
   function handleClick() {
-    setValue(prevValue => prevValue + 1);
+    setValue((prevValue) => prevValue + 1);
   }
 
   return (
     <>
-      <Header header='Examples' body='This is how I built my website using react and Framer Motion'></Header>
+      <Header
+        header="Examples"
+        body="This is how I built my website using react and Framer Motion"
+      ></Header>
       <Divider mb={40} />
-      
 
-    <Flex mb={10} mt={20} gap={5} direction="row" align="center" justify="center" w="100%" h="300px">
-      <Flex gap={20} w={'30%'} h={60} align={'center'} justify={'center'}>
-      <Card bg="gray.300" w="100%" h="100%">
-          <Flex  align={'center'}  justify = { 'center'} direction={'column'} w={'100%'} h={'100%'}>
-        <Avatar mb={5} size="xl" src={icon} />
-            
-        <div className='m-5'>{value}</div>
-            <Button w="30%" onClick={handleClick}>Click me!</Button>
-          </Flex>
-        </Card>
-      
+      <Flex
+        mb={10}
+        mt={20}
+        gap={5}
+        direction="row"
+        align="center"
+        justify="center"
+        w="100%"
+        h="300px"
+      >
+        <Flex gap={20} w={"30%"} h={60} align={"center"} justify={"center"}>
+          <Card bg="gray.300" w="100%" h="100%">
+            <Flex
+              align={"center"}
+              justify={"center"}
+              direction={"column"}
+              w={"100%"}
+              h={"100%"}
+            >
+              <Avatar mb={5} size="xl" src={icon} />
+
+              <div className="m-5">{value}</div>
+              <Button w="30%" onClick={handleClick}>
+                Click me!
+              </Button>
+            </Flex>
+          </Card>
+        </Flex>
       </Flex>
-    </Flex ></>
+    </>
   );
-  
 }
 
 function HooksExample() {
@@ -110,7 +127,6 @@ const ErrorComponent = ({ message }: ErrorComponentProps) => {
 };
   }`;
 
-
   const motionExampleCode = `
   import { Heading, Center, Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -146,18 +162,17 @@ export default MotionExample;
   
   
   
-  `
+  `;
   return (
     <>
       <StateExample />
       <CodeExample str={stateExampleCode} />
       <EffectExample />
       <CodeExample str={effectExampleCode} />
-      <MotionExample  />
+      <MotionExample />
       <CodeExample str={motionExampleCode}></CodeExample>
     </>
   );
 }
 
 export default HooksExample;
-

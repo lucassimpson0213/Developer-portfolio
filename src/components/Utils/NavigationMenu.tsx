@@ -1,8 +1,7 @@
-import { Link as RouterLink, useLocation } from 'react-router-dom';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import './styles.css';
-import NewModel from './NewModel';
-
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import "./styles.css";
+import NewModel from "./NewModel";
 
 interface LinkProps {
   href: string;
@@ -16,7 +15,7 @@ const Link: React.FC<LinkProps> = ({ href, children, ...props }) => {
   return (
     <RouterLink to={href}>
       <NavigationMenu.Link
-        className={`NavigationMenuLink ${isActive ? 'active' : ''}`}
+        className={`NavigationMenuLink ${isActive ? "active" : ""}`}
         {...props}
       >
         {children}
@@ -59,4 +58,3 @@ const NavigationMenuComponent: React.FC = () => (
 );
 
 export default NavigationMenuComponent;
-

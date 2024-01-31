@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -23,20 +23,20 @@ export default function SignUpv() {
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
- 
+
   const redirect = useRedirect("/congratulations");
 
   const handleSignUp = async () => {
     setLoading(true);
     try {
-      const  supa  = await supabase.auth.signUp({ email, password });
+      const supa = await supabase.auth.signUp({ email, password });
 
       supa.data;
 
       redirect();
       // Reset form or redirect user
     } catch (error) {
-      console.log("hello")
+      console.log("hello");
     } finally {
       setLoading(false);
     }
@@ -97,7 +97,7 @@ export default function SignUpv() {
                 Forgot password?
               </Button>
             </HStack>
-             <Text color="red.500"></Text>
+            <Text color="red.500"></Text>
             <Button isLoading={loading} onClick={handleSignUp}>
               Sign Up
             </Button>

@@ -1,16 +1,7 @@
 import NavigationMenu from "./NavigationMenu";
 
 export function Home() {
-
-
-  return (
-   
-      <NavigationMenu/>
-  
-
-  
-  );
+  return <NavigationMenu />;
 }
 
 export default Home;
-

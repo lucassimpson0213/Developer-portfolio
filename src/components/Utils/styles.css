@@ -1,11 +1,12 @@
-@import '@radix-ui/colors/black-alpha.css';
-@import '@radix-ui/colors/indigo.css';
-@import '@radix-ui/colors/mauve.css';
-@import '@radix-ui/colors/purple.css';
-@import '@radix-ui/colors/violet.css';
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/indigo.css";
+@import "@radix-ui/colors/mauve.css";
+@import "@radix-ui/colors/purple.css";
+@import "@radix-ui/colors/violet.css";
 
 /* Reset */
-button, p {
+button,
+p {
   all: unset;
 }
 
@@ -32,7 +33,8 @@ button, p {
   transition: background-color 0.2s, color 0.2s;
 
   /* Hover and focus effects */
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: var(--indigo-3); /* Hover background color */
     color: var(--indigo-12); /* Hover text color */
     border-radius: 4px;
@@ -53,8 +55,6 @@ button, p {
 
 /* Additional styles for animations, viewport, etc. */
 /* ... (Keep existing styles and animations) */
-
-
 
 .NavigationMenuTrigger,
 .NavigationMenuLink {
@@ -98,16 +98,16 @@ button, p {
   animation-duration: 250ms;
   animation-timing-function: ease;
 }
-.NavigationMenuContent[data-motion='from-start'] {
+.NavigationMenuContent[data-motion="from-start"] {
   animation-name: enterFromLeft;
 }
-.NavigationMenuContent[data-motion='from-end'] {
+.NavigationMenuContent[data-motion="from-end"] {
   animation-name: enterFromRight;
 }
-.NavigationMenuContent[data-motion='to-start'] {
+.NavigationMenuContent[data-motion="to-start"] {
   animation-name: exitToLeft;
 }
-.NavigationMenuContent[data-motion='to-end'] {
+.NavigationMenuContent[data-motion="to-end"] {
   animation-name: exitToRight;
 }
 @media only screen and (min-width: 600px) {
@@ -126,10 +126,10 @@ button, p {
   z-index: 1;
   transition: width, transform 250ms ease;
 }
-.NavigationMenuIndicator[data-state='visible'] {
+.NavigationMenuIndicator[data-state="visible"] {
   animation: fadeIn 200ms ease;
 }
-.NavigationMenuIndicator[data-state='hidden'] {
+.NavigationMenuIndicator[data-state="hidden"] {
   animation: fadeOut 200ms ease;
 }
 
@@ -141,14 +141,15 @@ button, p {
   background-color: white;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   height: var(--radix-navigation-menu-viewport-height);
   transition: width, height, 300ms ease;
 }
-.NavigationMenuViewport[data-state='open'] {
+.NavigationMenuViewport[data-state="open"] {
   animation: scaleIn 200ms ease;
 }
-.NavigationMenuViewport[data-state='closed'] {
+.NavigationMenuViewport[data-state="closed"] {
   animation: scaleOut 200ms ease;
 }
 @media only screen and (min-width: 600px) {
@@ -254,7 +255,7 @@ button, p {
   top: 1px;
   transition: transform 250ms ease;
 }
-[data-state='open'] > .CaretDown {
+[data-state="open"] > .CaretDown {
   transform: rotate(-180deg);
 }
 

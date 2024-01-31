@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
-import { Grid, GridItem, Box, Text, Divider, Image, Spacer } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  Box,
+  Text,
+  Divider,
+  Image,
+  Spacer,
+} from "@chakra-ui/react";
 import { Card } from "antd";
 import { LazyMotion, m, domAnimation } from "framer-motion";
 
 import pic3 from "../../assets/pic3.jpg";
 import gow from "../../../public/stock-photo-boy-playing-god-of-war-ragnarok-with-playstation-controller-jul-sao-paulo-brazil-2180836335.jpg";
 import krystal from "../../assets/IMG_4746-min.jpeg";
-import pic from '../../assets/maxresdefault.jpg'
-
+import pic from "../../assets/maxresdefault.jpg";
 
 // Motion components using 'm' prefix
 const MotionDivider = m(Divider);
@@ -52,10 +59,19 @@ export function SkillsGrid() {
   };
 
   const images: ImageItem[] = [
-    { src: pic3, title: "I like to program in Javascript and React", key: "pic3" },
+    {
+      src: pic3,
+      title: "I like to program in Javascript and React",
+      key: "pic3",
+    },
     { src: gow, title: "My Favorite Game of 2024", key: "gow" },
     { src: krystal, title: "My Beautiful Girlfriend", key: "krystal" },
-    { src: pic, title: "I study at Illinois State University where I'm getting a Bachelor's in Computer Science", key: "pic" },
+    {
+      src: pic,
+      title:
+        "I study at Illinois State University where I'm getting a Bachelor's in Computer Science",
+      key: "pic",
+    },
   ];
 
   return (
@@ -112,9 +128,7 @@ export function SkillsGrid() {
         </div>
 
         <Spacer />
-        <div>
-
-        </div>
+        <div></div>
       </>
     </LazyMotion>
   );
