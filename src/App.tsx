@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
@@ -72,16 +71,16 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Theme>
-    <ChakraProvider>
-      <Router>
+    
+      
         <div className="App">
           <Home />
           <Suspense fallback={<div>Loading...</div>}>
             <AnimatedRoutes />
           </Suspense>
         </div>
-      </Router>
-    </ChakraProvider></Theme>
+      
+    </Theme>
   );
 }
 
