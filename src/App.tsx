@@ -1,10 +1,9 @@
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import {
   Routes,
   Route,
   useLocation,
 } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Utils/Header";
 import LoginForm from "./components/Contact/Loginform";
 import {Theme} from '@radix-ui/themes'
@@ -75,9 +74,9 @@ function App() {
       
         <div className="App">
           <Home />
-          <Suspense fallback={<div>Loading...</div>}>
+         
             <AnimatedRoutes />
-          </Suspense>
+          
         </div>
       
     </Theme>

@@ -1,17 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link href="src/index.css" rel="stylesheet">
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+    <!-- Link to your main stylesheet -->
+    
+    <!-- Tailwind CSS inclusion, if needed via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div id="root"></div>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Single div for your app -->
     <div id="app"><!--ssr-outlet--></div>
-<script type="module" src="/src/entry-client.js"></script>
+    
+    <!-- Client-side script -->
+    <script type="module" src="./src/entry-client.jsx"></script>
   </body>
 </html>
+
