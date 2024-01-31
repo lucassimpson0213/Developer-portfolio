@@ -1,6 +1,6 @@
 // useAuthChangeHandler.js
 import { useEffect } from "react";
-import { supabase } from "../../../supabaseClient"; // Adjust the path according to your project structure
+import { supabase } from "../../../supabaseclient"; // Adjust the path according to your project structure
 
 const useAuthChangeHandler = (onAuthStateChange) => {
   useEffect(() => {
