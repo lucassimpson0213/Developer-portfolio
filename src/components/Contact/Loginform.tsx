@@ -15,17 +15,28 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { supabase } from "../../../supabaseclient"; // Adjust the path according to your project structure
+import { supabase } from "../../../supabaseclient.ts"; // Adjust the path according to your project structure
 import { useRedirect } from "../hooks/useRedirect"; // Adjust the path according to your project structure
+import useAuthChangeHandler from "../hooks/useAuthChangeHandler"; // Import the custom hook
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(""); // Add a state for error handling
+  const [error, setError] = useState("");
 
   const redirect = useRedirect("/congratulations");
+
+  // Define the behavior for auth state changes
+  const handleAuthStateChange = (event, session) => {
+    if (event === 'SIGNED_IN') {
+      redirect();
+    }
+    // Add more cases as needed
+  };
+
+  useAuthChangeHandler(handleAuthStateChange);
 
   async function handleSignIn() {
     setLoading(true);
@@ -37,8 +48,6 @@ export default function SignIn() {
 
     if (error) {
       setError(error.message);
-    } else {
-      redirect();
     }
     setLoading(false);
   }
