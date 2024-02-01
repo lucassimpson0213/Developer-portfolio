@@ -1,46 +1,83 @@
-import { useState, useEffect } from "react";
-import {
-  Grid,
-  GridItem,
-  Box,
-  Text,
-  Divider,
-  Image,
-  Spacer,
-} from "@chakra-ui/react";
-import { Card } from "antd";
-import { LazyMotion, m, domAnimation } from "framer-motion";
+import  { useState } from 'react';
+import { Grid, GridItem, Box, Text, Image, useBreakpointValue, VStack } from '@chakra-ui/react';
+import { m } from 'framer-motion';
 
-import pic3 from "../../assets/pic3.jpg";
-import gow from "../../../public/stock-photo-boy-playing-god-of-war-ragnarok-with-playstation-controller-jul-sao-paulo-brazil-2180836335.jpg";
-import krystal from "../../assets/IMG_4746-min.jpeg";
-import pic from "../../assets/maxresdefault.jpg";
+// Optimized image URL helper for Cloudflare image resizing
+const optimizedImageURL = (url) => `${url}?width=300&height=300&fit=cover`;
 
-// Motion components using 'm' prefix
-const MotionDivider = m(Divider);
+const images = [
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/<image_id>/<variant_name>',
+    title: 'I like to program in Javascript and React',
+    key: 'image1',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  {
+    src: 'https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/c4cbad09-c40f-4820-3469-0aeb48f83600/<variant_name>',
+    title: 'My Favorite Game of 2024',
+    key: 'gow',
+  },
+  
+  
+];
+
 const MotionBox = m(Box);
 
-type ImageLoadedState = {
-  pic3: boolean;
-  gow: boolean;
-  krystal: boolean;
-  pic: boolean;
-};
-
 export function SkillsGrid() {
-  const [imagesLoaded, setImagesLoaded] = useState<ImageLoadedState>({
-    pic3: false,
+  const [imagesLoaded, setImagesLoaded] = useState({
+    image1: false,
     gow: false,
     krystal: false,
     pic: false,
   });
 
-  useEffect(() => {
-    // This example doesn't fetch data but you can implement your data fetching logic here
-  }, []);
-
-  const handleImageLoad = (image: keyof ImageLoadedState) => {
-    setImagesLoaded((prev) => ({ ...prev, [image]: true }));
+  const handleImageLoad = (key) => {
+    setImagesLoaded((prev) => ({ ...prev, [key]: true }));
   };
 
   const fadeInUp = {
@@ -52,86 +89,46 @@ export function SkillsGrid() {
     },
   };
 
-  type ImageItem = {
-    src: string;
-    title: string;
-    key: keyof ImageLoadedState;
-  };
-
-  const images: ImageItem[] = [
-    {
-      src: pic3,
-      title: "I like to program in Javascript and React",
-      key: "pic3",
-    },
-    { src: gow, title: "My Favorite Game of 2024", key: "gow" },
-    { src: krystal, title: "My Beautiful Girlfriend", key: "krystal" },
-    {
-      src: pic,
-      title:
-        "I study at Illinois State University where I'm getting a Bachelor's in Computer Science",
-      key: "pic",
-    },
-  ];
+  // Responsive grid template columns
+  const gridTemplateColumns = useBreakpointValue({
+    base: "repeat(1, 1fr)",
+    md: "repeat(2, 1fr)",
+    lg: "repeat(2, 1fr)",
+  });
 
   return (
-    <LazyMotion features={domAnimation}>
-      <>
-        <MotionDivider
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          my={5}
-          layout
-        />
-
-        <div className="flex justify-center w-screen h-1/2">
-          <Grid
-            templateRows="repeat(2, 1fr)"
-            templateColumns="repeat(2, 1fr)"
-            gap={6}
-            w="2/3"
-            h="auto"
-            className="mt-40"
-          >
-            {images.map((item) => (
-              <GridItem key={item.key}>
-                <Card
-                  className="w-3/4"
-                  cover={
-                    <MotionBox
-                      height="300px"
-                      width="100%"
-                      overflow="hidden"
-                      initial="hidden"
-                      animate={imagesLoaded[item.key] ? "visible" : "hidden"}
-                      variants={fadeInUp}
-                    >
-                      <Image
-                        src={item.src}
-                        alt={item.title}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                        onLoad={() => handleImageLoad(item.key)}
-                      />
-                    </MotionBox>
-                  }
-                >
-                  <Text style={{ fontStyle: "italic" }}>{item.title}</Text>
-                </Card>
-              </GridItem>
-            ))}
-          </Grid>
-        </div>
-
-        <Spacer />
-        <div></div>
-      </>
-    </LazyMotion>
+    <Box className="flex justify-center w-screen h-1/2">
+      <Grid templateRows="repeat(2, 1fr)" templateColumns={gridTemplateColumns} gap={6} w="full" px={5} py={10}>
+        {images.map((item) => (
+          <GridItem key={item.key} colSpan={1}>
+            <MotionBox
+              height="300px"
+              bg="white"
+              shadow="md"
+              rounded="lg"
+              overflow="hidden"
+              initial="hidden"
+              animate={imagesLoaded[item.key] ? "visible" : "hidden"}
+              variants={fadeInUp}
+            >
+              <Image
+                src={optimizedImageURL(item.src)}
+                alt={item.title}
+                onLoad={() => handleImageLoad(item.key)}
+                fit="cover"
+                w="full"
+                h="200px"
+              />
+              <VStack p={4}>
+                <Text fontStyle="italic">{item.title}</Text>
+              </VStack>
+            </MotionBox>
+          </GridItem>
+        ))}
+      </Grid>
+    </Box>
   );
 }
 
 export default SkillsGrid;
+

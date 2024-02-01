@@ -4,7 +4,7 @@ import EffectExample from "./EffectExample";
 import MotionExample from "./MotionExample";
 import CodeExample from "./CodeExample";
 import Header from "../../Utils/Header";
-import icon from "../../../assets/train-8517089_1280.jpg";
+ const src1 = "https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/25ce7852-7aba-4ee6-846f-e95372758000/public"
 
 function StateExample() {
   const [value, setValue] = useState(0);
@@ -40,7 +40,7 @@ function StateExample() {
               w={"100%"}
               h={"100%"}
             >
-              <Avatar mb={5} size="xl" src={icon} />
+              <Avatar mb={5} size="xl" src={src1} />
 
               <div className="m-5">{value}</div>
               <Button w="30%" onClick={handleClick}>

@@ -13,7 +13,8 @@ import {
 } from "@chakra-ui/react";
 import { useModalControl } from "../hooks/useModelControl"; // Ensure correct path
 import { useRedirect } from "../hooks/useRedirect";
-import icon from "../../assets/shuttergames-9BE8hiqvUM4-unsplash.jpg";
+
+const src1 = " https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/54228e35-235c-44a1-f332-50f5515f4200/public"
 
 interface ModelProps {
   ModelTitle: string;
@@ -32,7 +33,7 @@ function NewModel({ ModelTitle, ModelText }: ModelProps) {
   return (
     <>
       <Flex justify="center" align="center">
-        <Avatar w={79} h={20} src={icon} onClick={openModal} />
+        <Avatar w={79} h={20} src={src1} onClick={openModal} />
       </Flex>
       <Modal isOpen={isOpen} onClose={closeModal}>
         <ModalOverlay />

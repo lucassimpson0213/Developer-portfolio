@@ -1,7 +1,8 @@
 import { Box, Text, Image, Flex, Heading } from "@chakra-ui/react";
 import { PiHandWaving } from "react-icons/pi";
 import { motion } from "framer-motion";
-import pic from "../../assets/IMG_4352-fotor-20240130145857.png";
+const src1 = "https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/12dce5b8-428f-4299-aefd-f6356359d500/public"
+
 import { GiPointing } from "react-icons/gi";
 import { CiInstagram } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
@@ -61,7 +62,7 @@ function HomePage() {
             ml={10}
             borderRadius="full"
             boxSize="120px"
-            src={pic}
+            src={src1}
             alt="My girlfriend krystal and I"
           />
         </Flex>

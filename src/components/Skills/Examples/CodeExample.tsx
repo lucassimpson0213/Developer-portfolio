@@ -1,6 +1,5 @@
-import { Code, Card } from "@chakra-ui/react";
+import { Code, Card ,Flex} from "@chakra-ui/react";
 import { Editor } from "@monaco-editor/react";
-import { Flex } from "antd";
 
 interface CodeProps {
   str: string;
