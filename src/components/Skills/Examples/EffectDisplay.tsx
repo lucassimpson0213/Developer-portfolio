@@ -9,7 +9,7 @@ const contentStyle: React.CSSProperties = {
   lineHeight: "160px",
   textAlign: "center",
   background: "#364d79",
-  width: "60vw",
+  width: "100vw", // Consider this width in relation to the carousel container
 };
 
 interface Quote {
@@ -35,24 +35,38 @@ const EffectDisplay: React.FC<DisplayProps> = ({ quotes }) => {
   }
 
   return (
-    <div className="sm:w-screen md:w-screen">
+    <Flex direction="column" align="center" justify="center" width="100vw">
       <Center>
-        <Heading mt={10} mb={5} fontFamily="adobe-garamond-pro">
+        <Heading
+          fontSize={{
+            base: "16px",
+            sm: "20px",
+            md: "24px",
+            lg: "28px",
+            xl: "32px",
+            "2xl": "36px",
+          }}
+          fontFamily="adobe-garamond-pro"
+        >
           Use Effect Example
         </Heading>
       </Center>
-      <Divider className="mb-20" />
-      <Flex justify="center" alignContent="center">
-        <Carousel
-          dotPosition="right"
-          style={{ width: "700px", height: "200px" }}
-        >
-          {quotes.map((quote, index) => (
-            <CarouselItem key={index} {...quote} />
-          ))}
-        </Carousel>
-      </Flex>
-    </div>
+      <Divider my={5} />
+      <Carousel
+        dotPosition="right"
+        style={{
+          marginLeft: "70vw",
+          maxWidth: "50vw",
+          width: "100vw",
+          height: "50vh",
+          minWidth: "10vw",
+        }} // Adjusted for better centering
+      >
+        {quotes.map((quote, index) => (
+          <CarouselItem key={index} {...quote} />
+        ))}
+      </Carousel>
+    </Flex>
   );
 };
 

@@ -37,11 +37,17 @@ const SignInWithOTP = () => {
   };
 
   return (
-    <Container maxW="md" py="12" px="6">
-      <Box as="form" onSubmit={(e) => e.preventDefault()}>
-        <FormControl isRequired>
+    <Container bg={"blue.800"} maxW="md" px="20" w="50vw" h="80vh">
+      <Box
+        className="bg-grey-800"
+        h="80vh"
+        as="form"
+        onSubmit={(e) => e.preventDefault()}
+      >
+        <FormControl mt={20} isRequired>
           <FormLabel htmlFor="email">Email</FormLabel>
           <Input
+            mt={20}
             id="email"
             type="email"
             value={email}
@@ -50,7 +56,7 @@ const SignInWithOTP = () => {
           />
         </FormControl>
         <Button
-          mt="4"
+          mt={30}
           colorScheme="blue"
           isLoading={loading}
           onClick={handleSignInWithOTP}
