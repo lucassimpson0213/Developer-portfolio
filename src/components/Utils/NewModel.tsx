@@ -14,7 +14,8 @@ import {
 import { useModalControl } from "../hooks/useModelControl"; // Ensure correct path
 import { useRedirect } from "../hooks/useRedirect";
 
-const src1 = " https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/54228e35-235c-44a1-f332-50f5515f4200/public"
+const src1 =
+  " https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/ef482bc3-7b4f-4d16-44de-6ff24cde5300/public";
 
 interface ModelProps {
   ModelTitle: string;

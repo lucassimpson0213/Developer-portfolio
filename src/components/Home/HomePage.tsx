@@ -1,7 +1,8 @@
 import { Box, Text, Image, Flex, Heading } from "@chakra-ui/react";
 import { PiHandWaving } from "react-icons/pi";
 import { motion } from "framer-motion";
-const src1 = "https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/12dce5b8-428f-4299-aefd-f6356359d500/public"
+const src1 =
+  "https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/db7b7639-d7d3-4d51-bbb2-0f345e636800/public";
 
 import { GiPointing } from "react-icons/gi";
 import { CiInstagram } from "react-icons/ci";
