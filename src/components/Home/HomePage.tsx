@@ -5,10 +5,8 @@ const src1 =
   "https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/db7b7639-d7d3-4d51-bbb2-0f345e636800/public";
 
 import { GiPointing } from "react-icons/gi";
-import { CiInstagram } from "react-icons/ci";
-import { CiFacebook } from "react-icons/ci";
-import { FaGithub } from "react-icons/fa6";
-
+import { CiInstagram, CiFacebook } from "react-icons/ci";
+import { FaGithub } from "react-icons/fa";
 function HomePage() {
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -75,15 +73,27 @@ function HomePage() {
           align={"center"}
           direction={"row"}
         >
-          <CiInstagram className="mr-5" size={"40"}>
-            <a href="https://www.instagram.com/lucassimpson33/"></a>
-          </CiInstagram>
-          <CiFacebook className="mr-5" size={"40"}>
-            <a href="https://www.facebook.com/profile.php?id=100005845240530"></a>
-          </CiFacebook>
-          <FaGithub className="mr-5" size={"40"}>
-            <a href="https://github.com/lucassimpson0213"></a>
-          </FaGithub>
+          <a
+            href="https://www.instagram.com/lucassimpson33/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <CiInstagram className="mr-5" size={"40"} />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100005845240530"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <CiFacebook className="mr-5" size={"40"} />
+          </a>
+          <a
+            href="https://github.com/lucassimpson0213"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub className="mr-5" size={"40"} />
+          </a>
         </Flex>
       </motion.div>
     </>
