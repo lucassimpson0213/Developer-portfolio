@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { supabase } from "../../../supabaseclient"; // Adjust the path according to your project structure
 import {
   Box,
