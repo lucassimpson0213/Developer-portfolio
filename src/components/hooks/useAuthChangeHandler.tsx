@@ -1,40 +1,31 @@
-// useAuthChangeHandler.js
 import { useEffect } from "react";
 import { supabase } from "../../../supabaseclient"; // Adjust the path according to your project structure
+import { AuthChangeEvent, Session } from "@supabase/supabase-js";
 
-const useAuthChangeHandler = (onAuthStateChange) => {
+// Define the type for the callback function
+type AuthChangeHandler = (
+  event: AuthChangeEvent,
+  session: Session | null
+) => void;
+
+const useAuthChangeHandler = (handleAuthChange: AuthChangeHandler): void => {
   useEffect(() => {
     const subscription = supabase.auth.onAuthStateChange((event, session) => {
-      console.log(`Auth event: ${event}`, session);
+      console.log(event, session);
 
-      switch (event) {
-        case 'INITIAL_SESSION':
-          onAuthStateChange(event, session);
-          break;
-        case 'SIGNED_IN':
-          onAuthStateChange(event, session);
-          break;
-        case 'SIGNED_OUT':
-          onAuthStateChange(event, session);
-          break;
-        case 'PASSWORD_RECOVERY':
-          onAuthStateChange(event, session);
-          break;
-        case 'TOKEN_REFRESHED':
-          onAuthStateChange(event, session);
-          break;
-        case 'USER_UPDATED':
-          onAuthStateChange(event, session);
-          break;
-        default:
-          console.log("Unhandled auth event:", event);
+      // Check if session is null
+      if (!session) {
+        handleAuthChange(event, null);
+        return;
       }
+
+      // Execute the callback function with event and session
+      handleAuthChange(event, session);
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [onAuthStateChange]);
+    // Return a cleanup function that unsubscribes from the event
+    return () => subscription.unsubscribe();
+  }, [handleAuthChange]); // Only re-subscribe if handleAuthChange changes
 };
 
 export default useAuthChangeHandler;
