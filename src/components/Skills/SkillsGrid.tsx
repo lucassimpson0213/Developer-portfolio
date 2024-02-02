@@ -7,7 +7,6 @@ import {
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 
 const optimizedImageURL = (url: string) =>
   `${url}?width=300&height=300&fit=cover`;
@@ -26,19 +25,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ src, title, onLoaded }) => {
   }, [loaded, onLoaded]);
 
   return (
-    <Box
-      as={motion.div}
-      initial={{ opacity: 0, y: -20 }}
-      animate={{
-        opacity: loaded ? 1 : 0,
-        y: loaded ? 0 : -20,
-        transition: { duration: 0.8 },
-      }}
-      p={5}
-      boxShadow="md"
-      rounded="lg"
-      bg="white"
-    >
+    <Box p={5} boxShadow="md" rounded="lg" bg="white">
       <Image
         src={optimizedImageURL(src)}
         alt={title}

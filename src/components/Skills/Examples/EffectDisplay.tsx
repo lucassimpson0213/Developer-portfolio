@@ -23,9 +23,7 @@ interface DisplayProps {
 
 const CarouselItem: React.FC<Quote> = ({ text, author }) => (
   <div>
-    <motion.div whileHover={{ scale: 1.1 }} style={contentStyle}>
-      {text} - {author || "Unknown"}
-    </motion.div>
+    {text} - {author || "Unknown"}
   </div>
 );
 
