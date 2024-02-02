@@ -1,16 +1,6 @@
 import React from "react";
 import { Carousel } from "antd";
 import { Flex, Heading, Divider, Center } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-
-const contentStyle: React.CSSProperties = {
-  height: "160px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  background: "#364d79",
-  width: "100vw", // Consider this width in relation to the carousel container
-};
 
 interface Quote {
   text: string;
