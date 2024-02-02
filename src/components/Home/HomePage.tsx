@@ -1,6 +1,6 @@
 import { Box, Text, Image, Flex, Heading } from "@chakra-ui/react";
 import { PiHandWaving } from "react-icons/pi";
-import { motion } from "framer-motion";
+
 const src1 =
   "https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/db7b7639-d7d3-4d51-bbb2-0f345e636800/public";
 
