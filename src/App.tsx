@@ -7,14 +7,15 @@ import {
 } from "react-router-dom";
 import Header from "./components/Utils/Header";
 import LoginForm from "./components/Contact/Loginform";
-import { Theme } from "@radix-ui/themes";
-
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./theme.ts";
 // Non-lazy loaded components
 import Home from "./components/Utils/Home";
 import HooksExample from "./components/Skills/Examples/HooksExample";
 import SignUpv from "./components/Auth/SignUpv";
 import Congrats from "./components/Auth/Congrats";
 import HomePage from "./components/Home/HomePage.tsx";
+import { ThemeProvider } from "./components/Utils/theme-provider.tsx";
 
 // Lazy load the components
 const BlogDashboard = lazy(() => import("./components/Blog/BlogDashboard"));
@@ -70,16 +71,18 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <Theme>
-      <Router>
-        <div className="App">
-          <Home />
-          <Suspense fallback={<div>Loading...</div>}>
-            <AnimatedRoutes />
-          </Suspense>
-        </div>
-      </Router>
-    </Theme>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ChakraProvider theme={theme}>
+        <Router>
+          <div className="App">
+            <Home />
+            <Suspense fallback={<div>Loading...</div>}>
+              <AnimatedRoutes />
+            </Suspense>
+          </div>
+        </Router>
+      </ChakraProvider>
+    </ThemeProvider>
   );
 }
 
