@@ -3,6 +3,7 @@
 @import "@radix-ui/colors/mauve.css";
 @import "@radix-ui/colors/purple.css";
 @import "@radix-ui/colors/violet.css";
+@import "@radix-ui/colors/gray.css";
 
 /* Reset */
 button,
@@ -18,9 +19,24 @@ p {
   list-style: none;
   padding: 10px;
   margin: 20px 0; /* Adjust margin as needed */
-  background-color: var(--mauve-1); /* Background color for the menu */
+  background-color: #cdced6;
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 10px var(--black-a7);
+}
+
+.slate {
+  --slate-1: #fcfcfd;
+  --slate-2: #f9f9fb;
+  --slate-3: #f0f0f3;
+  --slate-4: #e8e8ec;
+  --slate-5: #e0e1e6;
+  --slate-6: #d9d9e0;
+  --slate-7: #cdced6;
+  --slate-8: #b9bbc6;
+  --slate-9: #8b8d98;
+  --slate-10: #80838d;
+  --slate-11: #60646c;
+  --slate-12: #1c2024;
 }
 
 .NavigationMenuLink {

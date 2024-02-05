@@ -7,8 +7,7 @@ import {
 } from "react-router-dom";
 import Header from "./components/Utils/Header";
 import LoginForm from "./components/Contact/Loginform";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "./theme.ts";
+
 // Non-lazy loaded components
 import Home from "./components/Utils/Home";
 import HooksExample from "./components/Skills/Examples/HooksExample";
@@ -72,16 +71,14 @@ function AnimatedRoutes() {
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <ChakraProvider theme={theme}>
-        <Router>
-          <div className="App">
-            <Home />
-            <Suspense fallback={<div>Loading...</div>}>
-              <AnimatedRoutes />
-            </Suspense>
-          </div>
-        </Router>
-      </ChakraProvider>
+      <Router>
+        <div className="App">
+          <Home />
+          <Suspense fallback={<div>Loading...</div>}>
+            <AnimatedRoutes />
+          </Suspense>
+        </div>
+      </Router>
     </ThemeProvider>
   );
 }

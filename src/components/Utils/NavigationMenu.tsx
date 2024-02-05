@@ -3,8 +3,7 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import "./styles.css";
 import NewModel from "./NewModel";
 import { Button, useColorMode } from "@chakra-ui/react";
-
-import { ModeToggle } from "./ModeToggle";
+import "../../index.css";
 
 interface LinkProps {
   href: string;
@@ -31,7 +30,7 @@ export default function NavigationMenuComponent() {
   const { toggleColorMode } = useColorMode();
 
   return (
-    <NavigationMenu.Root>
+    <NavigationMenu.Root className="NavigationMenuRoot">
       <NavigationMenu.List className="NavigationMenuList">
         <NavigationMenu.Item className="NavigationMenuItem">
           <Link href="/">Home</Link>
@@ -52,8 +51,7 @@ export default function NavigationMenuComponent() {
           <Link href="/skills/examples">Examples</Link>
         </NavigationMenu.Item>
         <NavigationMenu.Item className="NavigationMenuItem">
-          <Button onClick={toggleColorMode}> </Button>
-          <ModeToggle />
+          <Button onClick={toggleColorMode}>Dark mode! </Button>
         </NavigationMenu.Item>
 
         <NewModel
