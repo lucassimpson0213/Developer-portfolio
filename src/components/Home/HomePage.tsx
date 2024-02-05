@@ -1,12 +1,9 @@
 import { Box, Text, Image, Flex, Heading } from "@chakra-ui/react";
-import { PiHandWaving } from "react-icons/pi";
+import * as Icon from "react-feather";
 
 const src1 =
   "https://imagedelivery.net/L7wDMZoIOzM6NWAo2dccYQ/db7b7639-d7d3-4d51-bbb2-0f345e636800/public";
 
-import { GiPointing } from "react-icons/gi";
-import { CiInstagram, CiFacebook } from "react-icons/ci";
-import { FaGithub } from "react-icons/fa";
 function HomePage() {
   return (
     <>
@@ -23,7 +20,7 @@ function HomePage() {
               fontSize="3xl"
               marginBottom="1rem"
             >
-              <PiHandWaving size={60} />
+              <Icon.User size={60} />
               Hi there, I'm Lucas!
             </Heading>
             <Text fontFamily={"adobe-garamond-pro"} mb={3}>
@@ -43,7 +40,6 @@ function HomePage() {
             <Text fontFamily={"adobe-garamond-pro"}>
               Check out this project on github. My socials are linked below
             </Text>{" "}
-            <GiPointing size={40} />
           </div>
         </Box>
         <Image
@@ -67,21 +63,21 @@ function HomePage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <CiInstagram className="mr-5" size={"40"} />
+          <Icon.Instagram className="mr-5" size={"40"} />
         </a>
         <a
           href="https://www.facebook.com/profile.php?id=100005845240530"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <CiFacebook className="mr-5" size={"40"} />
+          <Icon.Facebook className="mr-5" size={"40"} />
         </a>
         <a
           href="https://github.com/lucassimpson0213"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaGithub className="mr-5" size={"40"} />
+          <Icon.GitHub className="mr-5" size={"40"} />
         </a>
       </Flex>
     </>
