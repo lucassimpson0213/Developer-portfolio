@@ -20,7 +20,7 @@ p {
   padding: 10px;
   margin: 20px 0; /* Adjust margin as needed */
   background-color: #cdced6;
-  border-radius: 8px; /* Rounded corners */
+   /* Rounded corners */
   box-shadow: 0 2px 10px var(--black-a7);
 }
 
