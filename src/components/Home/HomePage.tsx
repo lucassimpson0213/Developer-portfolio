@@ -1,7 +1,7 @@
 import { Icon, Box, Text, Image, Flex } from "@chakra-ui/react";
 import { PiHandWaving } from "react-icons/pi";
 import { motion } from "framer-motion";
-import image from '../../Image.jpeg'
+import image from '../../../Image.jpeg'
 
 function HomePage() {
   const contentVariants = {
