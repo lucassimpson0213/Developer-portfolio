@@ -38,8 +38,8 @@ function HomePage() {
             ml={10}
             borderRadius="full"
             boxSize="120px"
-            src={krystal}
-            alt="Krystal"
+            src={image}
+            alt="Lucas in his bedroom"
           />
         </Flex>
       </motion.div>
