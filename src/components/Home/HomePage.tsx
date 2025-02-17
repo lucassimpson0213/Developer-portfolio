@@ -1,7 +1,7 @@
 import { Icon, Box, Text, Image, Flex } from "@chakra-ui/react";
 import { PiHandWaving } from "react-icons/pi";
 import { motion } from "framer-motion";
-import krystal from "../../assets/IMG_4282-min.jpeg";
+import image from "./image.jpeg'
 
 function HomePage() {
   const contentVariants = {
